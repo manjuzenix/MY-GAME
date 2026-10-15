@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap');
+
+:root {
+  --ink: #15324a;
+  --blue: #2499e8;
+  --deep-blue: #1678c4;
+  --paper: #ffffff;
+  --muted: #668198;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  color: var(--ink);
+  font-family: "Nunito", "Trebuchet MS", sans-serif;
+  background:
+    radial-gradient(circle at 12% 15%, rgba(255,255,255,.9) 0 3px, transparent 4px),
+    radial-gradient(circle at 88% 78%, rgba(255,255,255,.7) 0 4px, transparent 5px),
+    linear-gradient(135deg, #d8f4ff 0%, #b5e6ff 48%, #e4f9ff 100%);
+}
+
+.game-shell { width: min(100%, 850px); }
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.brand { display: flex; align-items: center; gap: 12px; }
+.brand-bird {
+  display: grid;
+  place-items: center;
+  width: 58px;
+  height: 58px;
+  border-radius: 18px;
+  background: white;
+  box-shadow: 0 8px 24px rgba(30, 108, 155, .12);
+  font-size: 34px;
+}
+h1 { margin: 0; font-size: clamp(1.45rem, 4vw, 2rem); font-weight: 900; letter-spacing: -.04em; }
+.brand p { margin: 2px 0 0; color: var(--muted); font-size: .92rem; font-weight: 700; }
+
+.score-pill {
+  min-width: 88px;
+  padding: 9px 18px 10px;
+  text-align: center;
+  border: 1px solid rgba(255,255,255,.9);
+  border-radius: 16px;
+  background: rgba(255,255,255,.78);
+  box-shadow: 0 8px 24px rgba(30,108,155,.09);
+}
+.score-label { display: block; color: var(--muted); font-size: .66rem; font-weight: 900; letter-spacing: .15em; }
+.score-pill strong { font-size: 1.65rem; line-height: 1.1; font-weight: 900; }
+
+.game-card {
+  position: relative;
+  overflow: hidden;
+  border: 5px solid rgba(255,255,255,.92);
+  border-radius: 26px;
+  background: #8ddcff;
+  box-shadow: 0 22px 55px rgba(30, 108, 155, .2), 0 3px 0 rgba(255,255,255,.8) inset;
+}
+canvas { display: block; width: 100%; height: auto; aspect-ratio: 8 / 5; touch-action: manipulation; }
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 18px;
+  background: rgba(16, 65, 91, .22);
+  backdrop-filter: blur(3px);
+  transition: opacity .2s ease;
+}
+.overlay.hidden { opacity: 0; pointer-events: none; }
+.overlay-card {
+  width: min(100%, 365px);
+  padding: 25px 27px 28px;
+  text-align: center;
+  border: 2px solid rgba(255,255,255,.9);
+  border-radius: 25px;
+  background: rgba(255,255,255,.94);
+  box-shadow: 0 18px 45px rgba(20, 80, 115, .2);
+}
+.hero-bird { font-size: 56px; line-height: 1.15; filter: drop-shadow(0 5px 0 rgba(20,80,115,.08)); }
+.eyebrow { margin: 10px 0 4px; color: #2392d4; font-size: .72rem; font-weight: 900; letter-spacing: .18em; }
+.overlay h2 { margin: 0; font-size: clamp(1.7rem, 5vw, 2.2rem); font-weight: 900; letter-spacing: -.04em; }
+.overlay-copy { margin: 10px 0 20px; color: #5c788d; font-size: .95rem; line-height: 1.5; font-weight: 700; }
+button {
+  width: 100%;
+  border: 0;
+  border-radius: 14px;
+  padding: 14px 18px;
+  color: white;
+  background: linear-gradient(135deg, #31b5f2, #167bd0);
+  box-shadow: 0 6px 0 #1267ad, 0 12px 20px rgba(22,123,208,.2);
+  font: inherit;
+  font-weight: 900;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform .12s ease, box-shadow .12s ease;
+}
+button:hover { transform: translateY(-2px); box-shadow: 0 8px 0 #1267ad, 0 15px 22px rgba(22,123,208,.22); }
+button:active { transform: translateY(3px); box-shadow: 0 3px 0 #1267ad; }
+button:focus-visible { outline: 3px solid #f9bd37; outline-offset: 4px; }
+
+.game-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 15px 4px 0;
+  color: #426b85;
+  font-size: .85rem;
+  font-weight: 700;
+}
+.game-footer p { margin: 0; text-align: right; }
+.control-hint { display: flex; align-items: center; gap: 7px; white-space: nowrap; }
+kbd {
+  min-width: 30px;
+  padding: 5px 8px;
+  text-align: center;
+  border: 1px solid #c4e7f5;
+  border-bottom-width: 3px;
+  border-radius: 7px;
+  background: rgba(255,255,255,.8);
+  color: #285b78;
+  font-family: inherit;
+  font-size: .72rem;
+  font-weight: 900;
+}
+
+@media (max-width: 560px) {
+  body { padding: 12px; align-items: start; }
+  .topbar { margin: 6px 0 12px; }
+  .brand { gap: 9px; }
+  .brand-bird { width: 46px; height: 46px; border-radius: 14px; font-size: 28px; }
+  .brand p { max-width: 180px; font-size: .75rem; }
+  .score-pill { min-width: 70px; padding: 7px 12px; }
+  .game-card { border-width: 3px; border-radius: 19px; }
+  .overlay-card { padding: 17px 18px 20px; border-radius: 19px; }
+  .hero-bird { font-size: 43px; }
+  .overlay-copy { margin: 8px 0 15px; font-size: .83rem; }
+  .game-footer { flex-direction: column; align-items: center; padding-top: 12px; }
+  .game-footer p { text-align: center; font-size: .78rem; }
+}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bird Flight</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="game-shell">
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-bird" aria-hidden="true">🐤</span>
+        <div>
+          <h1>Bird Flight</h1>
+          <p>Flap your way to a new high score!</p>
+        </div>
+      </div>
+      <div class="score-pill" aria-live="polite">
+        <span class="score-label">SCORE</span>
+        <strong id="score">0</strong>
+      </div>
+    </header>
+
+    <section class="game-card" aria-label="Bird Flight game">
+      <canvas id="gameCanvas" aria-label="Game area. Press Space or tap to flap."></canvas>
+      <div class="overlay" id="overlay">
+        <div class="overlay-card">
+          <div class="hero-bird" aria-hidden="true">🐤</div>
+          <p class="eyebrow" id="overlayEyebrow">READY TO FLY?</p>
+          <h2 id="overlayTitle">Bird Flight</h2>
+          <p class="overlay-copy" id="overlayCopy">Tap, click, or press Space to flap. Fly through the gaps and avoid the pipes!</p>
+          <button id="startButton" type="button">Start Flying <span aria-hidden="true">➜</span></button>
+        </div>
+      </div>
+    </section>
+
+    <footer class="game-footer">
+      <div class="control-hint"><kbd>SPACE</kbd><span>or</span><kbd>↑</kbd><span>to flap</span></div>
+      <p>Keep an eye on the gaps. One bump and it's game over!</p>
+    </footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
